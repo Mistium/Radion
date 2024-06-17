@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Radion</title>
+  </head>
+
+  <style>
+    body {
+      -webkit-user-select: none;
+      user-select: none;
+      font-family: poppins;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      color: azure;
+    }
+    .sidebar {
+      height: 100%;
+      width: 80px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .topbar {
+      left: 80px;
+      height: 80px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 0;
+    }
+
+    .topbar p {
+      margin: 20px;
+      font-size: 30px;
+    }
+    .code_area {
+      padding: 10px;
+      width: calc(100% - 110px);
+      height: calc(100% - 110px);
+      position: fixed;
+      top: 80px;
+      left: 80px;
+      background-color: #222;
+      border-radius: 10px;
+      color: azure;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 16px;
+      font-family: poppins;
+      text-align: left;
+      resize: none;
+      overflow: hidden;
+      outline: none;
+    }
+
+    .sidebutton {
+      height: 50px;
+      width: 50px;
+      display: block;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: #333;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 5px;
+    }
+
+    .sidebutton:hover {
+      background-color: #444;
+    }
+
+    .sideicon {
+      margin: 10px;
+      fill: #fff;
+      height: 30px;
+      width: 30px;
+    }
+
+    .console {
+      display: none;
+      padding: 10px;
+      width: calc(30% + 60px);
+      height: calc(100% - 110px);
+      position: fixed;
+      top: 80px;
+      right: 10px;
+      background-color: #222;
+      border-radius: 10px;
+      border-width: 10px;
+      color: azure;
+      outline: none;
+      resize: none;
+      font-size: 16px;
+      font-family: poppins;
+      text-align: left;
+      resize: none;
+      overflow: hidden;
+      outline: none;
+    }
+
+    #clearconsole {
+      border-radius: 10px;
+      background-color: #333;
+      align-items:  center;
+      text-align: center;
+      padding: 10px;
+      height: 25px;
+    }
+    
+    #clearconsole:hover {
+      background-color: #444;
+    }
+  </style>
+  <body>
+  <div class="sidebar">
+    <div class="sidebutton" id="runbutton">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="sideicon"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+    </div>
+    <div class="sidebutton" id="copybutton">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="sideicon"><path d="M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z"/></svg>
+    </div>
+    <div class="sidebutton" id="console">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="sideicon"><path d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </div>
+  </div>
+  <div class="topbar">
+    <p>radion Studio</p>
+  </div>
+  <textarea type="text" name="code" id="code_area" class="code_area">int 0 4
+int 1 5
+
+- acts as the iterator for the loop
+int 2 0
+
+- output
+int 3 1
+: start
+- i ++
+add 2 1
+
+mul 3 $0
+nql $2 $1 :start
+out $3
+out $2
+out $1</textarea>
+  <div class="console" id="console_area">
+    <div id="clearconsole">Clear</div>
+    <div id="consoletext"></div>
+  </div>
+  <script src="radion.js"></script>
+  </body>
+</html>
